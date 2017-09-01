@@ -37,9 +37,9 @@ export class TypeScriptPlugin {
         this.watchAll()
       },
       'before:package:createDeploymentArtifacts': this.compileTs.bind(this),
-      'after:package:createDeploymentArtifacts': this.cleanup.bind(this),
+      // 'after:package:createDeploymentArtifacts': this.cleanup.bind(this),
       'before:deploy:function:packageFunction': this.compileTs.bind(this),
-      'after:deploy:function:packageFunction': this.cleanup.bind(this),
+      // 'after:deploy:function:packageFunction': this.cleanup.bind(this),
       'before:invoke:local:invoke': async () => {
         const emitedFiles = await this.compileTs()
         if (this.isWatching) {
